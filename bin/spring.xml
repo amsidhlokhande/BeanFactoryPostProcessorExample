@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="PointA" class="com.amsidh.beans.Point">
+		<constructor-arg index="0" value="${pointA.x}" />
+		<constructor-arg index="1" value="${pointA.y}" />
+		<property name="pointName" value="PointA" />
+	</bean>
+
+	<bean id="PointB" class="com.amsidh.beans.Point">
+		<constructor-arg index="0" value="${pointB.x}" />
+		<constructor-arg index="1" value="${pointB.y}" />
+		<property name="pointName" value="PointB" />
+	</bean>
+
+	<bean id="PointC" class="com.amsidh.beans.Point">
+		<constructor-arg index="0" value="${pointC.x}" />
+		<constructor-arg index="1" value="${pointC.y}" />
+		<property name="pointName" value="PointC" />
+	</bean>
+
+	<bean id="triangle" class="com.amsidh.beans.Triangle">
+		<property name="pointA" ref="PointA" />
+		<property name="pointB" ref="PointB" />
+		<property name="pointC" ref="PointC" />
+	</bean>
+	<bean class="com.amsidh.bean.postprocessor.MyBeanPostProcessor" />
+	<bean
+		class="com.amsidh.bean.factory.postprocessor.LoadPropertiesBeforeLoadingAnyBean" />
+</beans>
